@@ -12,8 +12,13 @@ connectDB();
 
 //middleware
 app.use(express.json());
-app.use(cors());
-
+const corsOptions = {
+  origin: process.env.ORIGIN || 'http://localhost:5173',  // Use ORIGIN from env, with fallback
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
