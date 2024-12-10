@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { ThemeProvider } from "@material-tailwind/react";
 import { Provider } from 'react-redux';
-import { store } from './redux/store'; // Import the store
+import { store } from './redux/store.js'; 
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
