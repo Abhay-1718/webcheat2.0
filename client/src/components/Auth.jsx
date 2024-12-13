@@ -12,7 +12,7 @@ const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const backendUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:4000'; // Ensure correct URL
+  const backendUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:4000'; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,11 +30,11 @@ const Auth = () => {
     const endpoint = isSignup ? '/api/auth/register' : '/api/auth/login';
 
     try {
-      console.log('Sending request to backend with data:', formData); // Log the data being sent
+    
 
       const { data } = await axios.post(`${backendUrl}${endpoint}`, formData);
 
-      console.log('Backend response:', data); // Log the response from the backend
+    
 
       if (data.success) {
         localStorage.setItem('token', data.token);

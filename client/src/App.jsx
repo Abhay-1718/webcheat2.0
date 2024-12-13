@@ -6,15 +6,15 @@ import { store } from './redux/store';
 import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({ element }) => {
-  // Check if the user is authenticated (if token exists in localStorage or in the Redux store)
+  
   const isAuthenticated = useSelector((state) => state.auth.token || localStorage.getItem('token'));
 
-  // If not authenticated, redirect to login
+  
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
-  // If authenticated, render the protected element
+
   return element;
 };
 
